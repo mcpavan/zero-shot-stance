@@ -13,6 +13,11 @@ from transformers import BertModel
 # N_layer: num layers
 # L_i: length of sequence i
 
+def get_BERT_Model(name=None):
+    if not name:
+        name = 'bert-base-uncased'
+    
+    return BertModel.from_pretrained(name)
 
 class BasicWordEmbedLayer(torch.nn.Module):
     def __init__(self, vecs, static_embeds=True, use_cuda=False):
@@ -33,13 +38,13 @@ class BasicWordEmbedLayer(torch.nn.Module):
 
 
 class BERTLayer(torch.nn.Module):
-    def __init__(self, mode='text-level', use_cuda=False, device=None):
+    def __init__(self, mode='text-level', use_cuda=False, device=None, pretrained_model_name=None):
         super(BERTLayer, self).__init__()
 
         self.mode = mode
         self.use_cuda = use_cuda
         self.static_embeds = True
-        self.bert_layer = BertModel.from_pretrained('bert-base-uncased')
+        self.bert_layer = get_BERT_Model(name=pretrained_model_name) #BertModel.from_pretrained('bert-base-uncased')
         self.dim = 768
         if self.use_cuda:
             self.device = 'cuda' if device is None else 'cuda:' + device
@@ -90,11 +95,11 @@ class BERTLayer(torch.nn.Module):
 
 
 class JointBERTLayer(torch.nn.Module):
-    def __init__(self, use_cuda=False):
+    def __init__(self, use_cuda=False, pretrained_model_name=None):
         super(JointBERTLayer, self).__init__()
 
         self.use_cuda = use_cuda
-        self.bert_layer = BertModel.from_pretrained('bert-base-uncased')
+        self.bert_layer = get_BERT_Model(name=pretrained_model_name) # BertModel.from_pretrained('bert-base-uncased')
         self.dim = 768
         self.static_embeds=True
         if self.use_cuda:
@@ -113,7 +118,7 @@ class JointBERTLayer(torch.nn.Module):
             token_type_ids = token_type_ids.to('cuda')
 
         last_hidden, _ = self.bert_layer(input_ids=item_ids,attention_mask=item_masks,
-                                         token_type_ids=token_type_ids)
+                                         token_type_ids=token_type_ids, return_dict=False)
         full_masks = item_masks.unsqueeze(2).repeat(1, 1, self.dim)
         masked_last_hidden = torch.einsum('blh,blh->blh', last_hidden, full_masks)
 
@@ -138,12 +143,12 @@ class JointBERTLayer(torch.nn.Module):
 
 
 class JointBERTLayerWithExtra(torch.nn.Module):
-    def __init__(self,vecs, use_both=True, static_vecs=True, use_cuda=False):
+    def __init__(self,vecs, use_both=True, static_vecs=True, use_cuda=False, pretrained_model_name=None):
         super(JointBERTLayerWithExtra, self).__init__()
 
         self.use_cuda = use_cuda
         self.static_embeds = static_vecs
-        self.bert_layer = BertModel.from_pretrained('bert-base-uncased')
+        self.bert_layer = get_BERT_Model(name=pretrained_model_name) # BertModel.from_pretrained('bert-base-uncased')
 
         topic_tensor = torch.tensor(vecs)
         self.topic_embeds = nn.Embedding.from_pretrained(topic_tensor, freeze=static_vecs)
@@ -170,7 +175,8 @@ class JointBERTLayerWithExtra(torch.nn.Module):
             token_type_ids = token_type_ids.to('cuda')
 
         last_hidden, _ = self.bert_layer(input_ids=item_ids,attention_mask=item_masks,
-                                         token_type_ids=token_type_ids)
+                                         token_type_ids=token_type_ids, return_dict=False)
+        
         full_masks = item_masks.unsqueeze(2).repeat(1, 1, last_hidden.shape[2])
         masked_last_hidden = torch.einsum('blh,blh->blh', last_hidden, full_masks)
 

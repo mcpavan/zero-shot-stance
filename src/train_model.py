@@ -229,13 +229,15 @@ if __name__ == '__main__':
             if 'topic_name' in config:
                 input_layer = im.JointBERTLayerWithExtra(vecs=topic_vecs, use_cuda=use_cuda,
                                                          use_both=(config.get('use_ori_topic', '1') == '1'),
-                                                         static_vecs=(config.get('static_topics', '1') == '1'))
+                                                         static_vecs=(config.get('static_topics', '1') == '1'),
+                                                         pretrained_model_name=config.get("bert_pretrained_model"))
             else:
-                input_layer = im.JointBERTLayer(use_cuda=use_cuda)
+                input_layer = im.JointBERTLayer(use_cuda=use_cuda,
+                                                pretrained_model_name=config.get("bert_pretrained_model"))
 
         else:
             batch_args = {'keep_sen': False}
-            input_layer = im.BERTLayer(mode='text-level', use_cuda=use_cuda)
+            input_layer = im.BERTLayer(mode='text-level', use_cuda=use_cuda, pretrained_model_name=config.get("bert_pretrained_model"))
 
         setup_fn =data_utils.setup_helper_bert_ffnn
 
@@ -263,7 +265,8 @@ if __name__ == '__main__':
         batch_args = {'keep_sen': False}
         input_layer = im.JointBERTLayerWithExtra(vecs=topic_vecs, use_cuda=use_cuda,
                                                      use_both=(config.get('use_ori_topic', '1') == '1'),
-                                                     static_vecs=(config.get('static_topics', '1') == '1'))
+                                                     static_vecs=(config.get('static_topics', '1') == '1'),
+                                                     pretrained_model_name=config.get("bert_pretrained_model"))
 
         setup_fn = data_utils.setup_helper_bert_attffnn
 
@@ -297,7 +300,8 @@ if __name__ == '__main__':
         batch_args = {'keep_sen': False}
         input_layer = im.JointBERTLayerWithExtra(vecs=topic_vecs, use_cuda=use_cuda,
                                                  use_both=(config.get('use_ori_topic', '1') == '1'),
-                                                 static_vecs=(config.get('static_topics', '1') == '1'))
+                                                 static_vecs=(config.get('static_topics', '1') == '1'),
+                                                 pretrained_model_name=config.get("bert_pretrained_model"))
 
         setup_fn = data_utils.setup_helper_bert_attffnn
 
