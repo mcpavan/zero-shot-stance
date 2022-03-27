@@ -18,3 +18,4 @@ topic_path:../resources/topicreps/ustancebr
 add_resid:0
 in_dropout:0.35000706311476193
 hidden_size:401
+num_labels:2

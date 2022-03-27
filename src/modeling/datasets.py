@@ -32,6 +32,8 @@ class StanceData(Dataset):
         else:
             self.topic_rep_dict = None
 
+        self.bert_pretrained_model = kwargs.get("bert_pretrained_model", "bert-base-uncased")
+
         self.preprocess_data()
 
     def preprocess_data(self):
@@ -52,8 +54,8 @@ class StanceData(Dataset):
         self.data_file['text_mask'] = [[] for _ in range(len(self.data_file))]
 
         if self.is_bert:
-            self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
-            print("processing BERT")
+            self.tokenizer = BertTokenizer.from_pretrained(self.bert_pretrained_model, do_lower_case=True)
+            print(f"processing BERT {self.bert_pretrained_model}")
             for i in self.data_file.index:
                 row = self.data_file.iloc[i]
                 text = json.loads(row['text'])

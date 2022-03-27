@@ -105,8 +105,8 @@ if __name__ == '__main__':
         vecs = data_utils.load_vectors('../resources/{}.vectors.npy'.format(vec_name),
                                    dim=vec_dim, seed=SEED)
 
-    trn_data_kwargs = {}
-    dev_data_kwargs = {}
+    trn_data_kwargs = {"bert_pretrained_model": config.get("bert_pretrained_model")}
+    dev_data_kwargs = {"bert_pretrained_model": config.get("bert_pretrained_model")}
 
     if 'topic_name' in config:
         topic_vecs = np.load('{}/{}.{}.npy'.format(config['topic_path'], config['topic_name'], config.get('rep_v', 'centroids')))
@@ -279,7 +279,9 @@ if __name__ == '__main__':
                                  att_mode=config.get('att_mode', 'text_only'),
                                  topic_dim=int(config['topic_dim']),
                                  learned=(config.get('learned', '0') == '1'),
-                                 use_cuda=use_cuda)
+                                 use_cuda=use_cuda,
+                                 n_labels=int(config.get("num_labels", 3))
+                          )
 
         optimizer = optim.Adam(model.parameters())
 

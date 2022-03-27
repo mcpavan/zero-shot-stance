@@ -138,7 +138,7 @@ class TGANet(torch.nn.Module):
         self.use_cuda = kwargs['use_cuda']
         self.hidden_dim = kwargs['hidden_size']
         self.input_dim = kwargs['text_dim']
-        self.num_labels = 3
+        self.num_labels = kwargs.get('num_labels', 3)
 
         self.attention_mode = kwargs.get('att_mode', 'text_only')
 
