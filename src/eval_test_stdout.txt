@@ -1,0 +1,93 @@
+Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+/anaconda/envs/zero_shot_stance/lib/python3.7/site-packages/transformers/tokenization_utils_base.py:2111: FutureWarning: The `pad_to_max_length` argument is deprecated and will be removed in a future version, use `padding=True` or `padding='longest'` to pad to the longest sequence in the batch, or use `padding='max_length'` to pad to a max length. In this case, you can give a specific length with `max_length` (e.g. `max_length=45`) or leave max_length to None to pad to the maximal input size of the model (e.g. 512 for Bert).
+  FutureWarning,
+Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+Some weights of the model checkpoint at neuralmind/bert-base-portuguese-cased were not used when initializing BertModel: ['cls.seq_relationship.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+/anaconda/envs/zero_shot_stance/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1515: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  average, "true nor predicted", 'F-score is', len(true_sum)
+/anaconda/envs/zero_shot_stance/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1272: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/anaconda/envs/zero_shot_stance/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1272: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+preprocessing data ../data/UStanceBR/r2_bo_train_statements.csv ...
+processing BERT
+...finished pre-processing for BERT
+preprocessing data ../data/UStanceBR/r2_bo_test_statements.csv ...
+processing BERT
+...finished pre-processing for BERT
+Evaling on "TRAIN" data
+f_macro: 0.5662068576913964
+f_anti: 0.8909847434119278
+f_pro: 0.8076358296622614
+f_none: 0.0
+p_macro: 0.5861998361998362
+p_anti: 0.8295454545454546
+p_pro: 0.9290540540540541
+p_none: 0.0
+r_macro: 0.5588461867670974
+r_anti: 0.9622528460155781
+r_pro: 0.7142857142857143
+r_none: 0.0
+f-1_macro: 0.0
+f-1_anti: 0.0
+f-1_pro: 0.0
+f-1_none: 0.0
+p-1_macro: 0.0
+p-1_anti: 0.0
+p-1_pro: 0.0
+p-1_none: 0.0
+r-1_macro: 0.0
+r-1_anti: 0.0
+r-1_pro: 0.0
+r-1_none: 0.0
+f-0_macro: 0.5662068576913964
+f-0_anti: 0.8909847434119278
+f-0_pro: 0.8076358296622614
+f-0_none: 0.0
+p-0_macro: 0.5861998361998362
+p-0_anti: 0.8295454545454546
+p-0_pro: 0.9290540540540541
+p-0_none: 0.0
+r-0_macro: 0.5588461867670974
+r-0_anti: 0.9622528460155781
+r-0_pro: 0.7142857142857143
+r-0_none: 0.0
+Evaling on "test" data
+f_macro: 0.4488086449473065
+f_anti: 0.7767741935483871
+f_pro: 0.5696517412935324
+f_none: 0.0
+p_macro: 0.47129878698675326
+p_anti: 0.7049180327868853
+p_pro: 0.7089783281733746
+p_none: 0.0
+r_macro: 0.44701133494236944
+r_anti: 0.8649425287356322
+r_pro: 0.4760914760914761
+r_none: 0.0
+f-1_macro: 0.0
+f-1_anti: 0.0
+f-1_pro: 0.0
+f-1_none: 0.0
+p-1_macro: 0.0
+p-1_anti: 0.0
+p-1_pro: 0.0
+p-1_none: 0.0
+r-1_macro: 0.0
+r-1_anti: 0.0
+r-1_pro: 0.0
+r-1_none: 0.0
+f-0_macro: 0.4488086449473065
+f-0_anti: 0.7767741935483871
+f-0_pro: 0.5696517412935324
+f-0_none: 0.0
+p-0_macro: 0.47129878698675326
+p-0_anti: 0.7049180327868853
+p-0_pro: 0.7089783281733746
+p-0_none: 0.0
+r-0_macro: 0.44701133494236944
+r-0_anti: 0.8649425287356322
+r-0_pro: 0.4760914760914761
+r-0_none: 0.0

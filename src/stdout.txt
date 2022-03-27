@@ -1,0 +1,710 @@
+Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+/anaconda/envs/zero_shot_stance/lib/python3.7/site-packages/transformers/tokenization_utils_base.py:2111: FutureWarning: The `pad_to_max_length` argument is deprecated and will be removed in a future version, use `padding=True` or `padding='longest'` to pad to the longest sequence in the batch, or use `padding='max_length'` to pad to a max length. In this case, you can give a specific length with `max_length` (e.g. `max_length=45`) or leave max_length to None to pad to the maximal input size of the model (e.g. 512 for Bert).
+  FutureWarning,
+Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+Some weights of the model checkpoint at neuralmind/bert-base-portuguese-cased were not used when initializing BertModel: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+preprocessing data ../data/UStanceBR/r2_bo_train_statements.csv ...
+processing BERT
+...finished pre-processing for BERT
+preprocessing data ../data/UStanceBR/r2_bo_valid_statements.csv ...
+processing BERT
+...finished pre-processing for BERT
+Using cuda?: True
+[tganet_pt] epoch 0
+   took: 1.0 min
+training loss: 30.399851500988007
+Evaling on "DEV" data
+f_macro: 0.2659486058736481
+p_macro: 0.4852971754380205
+r_macro: 0.34113704017838226
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.2659486058736481
+p-0_macro: 0.4852971754380205
+r-0_macro: 0.34113704017838226
+0.2659486058736481 0.2659486058736481
+[tganet_pt] epoch 1
+   took: 1.0 min
+training loss: 28.420981109142303
+Evaling on "DEV" data
+f_macro: 0.3976085641717661
+p_macro: 0.4485848389625402
+r_macro: 0.40591829447431604
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.3976085641717661
+p-0_macro: 0.4485848389625402
+r-0_macro: 0.40591829447431604
+0.3976085641717661 0.2659486058736481
+[tganet_pt] epoch 2
+   took: 1.0 min
+training loss: 27.112493187189102
+Evaling on "DEV" data
+f_macro: 0.3822621463959926
+p_macro: 0.461163843657093
+r_macro: 0.3981658578423108
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.3822621463959926
+p-0_macro: 0.461163843657093
+r-0_macro: 0.3981658578423108
+0.3822621463959926 0.3976085641717661
+[tganet_pt] epoch 3
+   took: 1.0 min
+training loss: 26.420672744512558
+Evaling on "DEV" data
+f_macro: 0.38879375249260906
+p_macro: 0.46082697412920903
+r_macro: 0.4021293997926712
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.38879375249260906
+p-0_macro: 0.46082697412920903
+r-0_macro: 0.4021293997926712
+0.38879375249260906 0.3976085641717661
+[tganet_pt] epoch 4
+   took: 1.0 min
+training loss: 27.22709208726883
+Evaling on "DEV" data
+f_macro: 0.3952510152162425
+p_macro: 0.4541642843529636
+r_macro: 0.4052506577371766
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.3952510152162425
+p-0_macro: 0.4541642843529636
+r-0_macro: 0.4052506577371766
+0.3952510152162425 0.3976085641717661
+[tganet_pt] epoch 5
+   took: 1.0 min
+training loss: 27.055684119462967
+Evaling on "DEV" data
+f_macro: 0.4395209816143784
+p_macro: 0.4417909403573736
+r_macro: 0.4384165199024396
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4395209816143784
+p-0_macro: 0.4417909403573736
+r-0_macro: 0.4384165199024396
+0.4395209816143784 0.3976085641717661
+[tganet_pt] epoch 6
+   took: 1.0 min
+training loss: 25.448903560638428
+Evaling on "DEV" data
+f_macro: 0.44665404290494415
+p_macro: 0.44985053588353957
+r_macro: 0.44525197191464416
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.44665404290494415
+p-0_macro: 0.44985053588353957
+r-0_macro: 0.44525197191464416
+0.44665404290494415 0.4395209816143784
+[tganet_pt] epoch 7
+   took: 1.0 min
+training loss: 25.299980610609055
+Evaling on "DEV" data
+f_macro: 0.4195029447696151
+p_macro: 0.45333352103489255
+r_macro: 0.42177246227575765
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4195029447696151
+p-0_macro: 0.45333352103489255
+r-0_macro: 0.42177246227575765
+0.4195029447696151 0.44665404290494415
+[tganet_pt] epoch 8
+   took: 1.0 min
+training loss: 24.722736090421677
+Evaling on "DEV" data
+f_macro: 0.40574687112513486
+p_macro: 0.416922491428587
+r_macro: 0.417800706716225
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.40574687112513486
+p-0_macro: 0.416922491428587
+r-0_macro: 0.417800706716225
+0.40574687112513486 0.44665404290494415
+[tganet_pt] epoch 9
+   took: 1.0 min
+training loss: 25.583002775907516
+Evaling on "DEV" data
+f_macro: 0.41919060200869773
+p_macro: 0.44671056106438606
+r_macro: 0.42065359578840705
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.41919060200869773
+p-0_macro: 0.44671056106438606
+r-0_macro: 0.42065359578840705
+0.41919060200869773 0.44665404290494415
+[tganet_pt] epoch 10
+   took: 1.0 min
+training loss: 24.08852081000805
+Evaling on "DEV" data
+f_macro: 0.37079578811633823
+p_macro: 0.43305187088331093
+r_macro: 0.3870913189067773
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.37079578811633823
+p-0_macro: 0.43305187088331093
+r-0_macro: 0.3870913189067773
+[tganet_pt] epoch 11
+   took: 1.0 min
+training loss: 25.083384603261948
+Evaling on "DEV" data
+f_macro: 0.4031146669116101
+p_macro: 0.4451275401503934
+r_macro: 0.409006092768825
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4031146669116101
+p-0_macro: 0.4451275401503934
+r-0_macro: 0.409006092768825
+[tganet_pt] epoch 12
+   took: 1.0 min
+training loss: 23.268375754356384
+Evaling on "DEV" data
+f_macro: 0.43072361314655816
+p_macro: 0.4303430001223644
+r_macro: 0.4327223272699605
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.43072361314655816
+p-0_macro: 0.4303430001223644
+r-0_macro: 0.4327223272699605
+0.43072361314655816 0.44665404290494415
+[tganet_pt] epoch 13
+   took: 1.0 min
+training loss: 23.938387751579285
+Evaling on "DEV" data
+f_macro: 0.4141412109431249
+p_macro: 0.42258838541238447
+r_macro: 0.42442390177560946
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4141412109431249
+p-0_macro: 0.42258838541238447
+r-0_macro: 0.42442390177560946
+[tganet_pt] epoch 14
+   took: 1.0 min
+training loss: 23.532776534557343
+Evaling on "DEV" data
+f_macro: 0.40989018245428754
+p_macro: 0.4420994777329234
+r_macro: 0.4131933907248467
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.40989018245428754
+p-0_macro: 0.4420994777329234
+r-0_macro: 0.4131933907248467
+[tganet_pt] epoch 15
+   took: 1.0 min
+training loss: 22.22432252764702
+Evaling on "DEV" data
+f_macro: 0.4201615109077583
+p_macro: 0.4477939914163091
+r_macro: 0.4215303769527856
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4201615109077583
+p-0_macro: 0.4477939914163091
+r-0_macro: 0.4215303769527856
+0.4201615109077583 0.44665404290494415
+[tganet_pt] epoch 16
+   took: 1.0 min
+training loss: 22.83658927679062
+Evaling on "DEV" data
+f_macro: 0.4341581978718652
+p_macro: 0.44030743457166216
+r_macro: 0.43268532279916344
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4341581978718652
+p-0_macro: 0.44030743457166216
+r-0_macro: 0.43268532279916344
+0.4341581978718652 0.44665404290494415
+[tganet_pt] epoch 17
+   took: 1.0 min
+training loss: 23.575867295265198
+Evaling on "DEV" data
+f_macro: 0.40187213804706534
+p_macro: 0.45691479872770807
+r_macro: 0.40996864130477073
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.40187213804706534
+p-0_macro: 0.45691479872770807
+r-0_macro: 0.40996864130477073
+[tganet_pt] epoch 18
+   took: 1.0 min
+training loss: 22.834744572639465
+Evaling on "DEV" data
+f_macro: 0.4345627731552761
+p_macro: 0.4422554894771927
+r_macro: 0.43305026642354383
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4345627731552761
+p-0_macro: 0.4422554894771927
+r-0_macro: 0.43305026642354383
+0.4345627731552761 0.44665404290494415
+[tganet_pt] epoch 19
+   took: 1.0 min
+training loss: 24.08957603573799
+Evaling on "DEV" data
+f_macro: 0.4014213906909691
+p_macro: 0.45861321271115596
+r_macro: 0.40991270230335536
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4014213906909691
+p-0_macro: 0.45861321271115596
+r-0_macro: 0.40991270230335536
+[tganet_pt] epoch 20
+   took: 1.0 min
+training loss: 22.560521006584167
+Evaling on "DEV" data
+f_macro: 0.4215311910472104
+p_macro: 0.43232971827091465
+r_macro: 0.43362617011508564
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4215311910472104
+p-0_macro: 0.43232971827091465
+r-0_macro: 0.43362617011508564
+[tganet_pt] epoch 21
+   took: 1.0 min
+training loss: 22.91852179169655
+Evaling on "DEV" data
+f_macro: 0.4249170924276015
+p_macro: 0.4273326615781315
+r_macro: 0.43054312706799225
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4249170924276015
+p-0_macro: 0.4273326615781315
+r-0_macro: 0.43054312706799225
+[tganet_pt] epoch 22
+   took: 1.0 min
+training loss: 22.87602937221527
+Evaling on "DEV" data
+f_macro: 0.435452025894602
+p_macro: 0.4349446246516657
+r_macro: 0.43635965924761616
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.435452025894602
+p-0_macro: 0.4349446246516657
+r-0_macro: 0.43635965924761616
+0.435452025894602 0.44665404290494415
+[tganet_pt] epoch 23
+   took: 1.0 min
+training loss: 21.89907956123352
+Evaling on "DEV" data
+f_macro: 0.43037675686351684
+p_macro: 0.4419428714084468
+r_macro: 0.42917404810754123
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.43037675686351684
+p-0_macro: 0.4419428714084468
+r-0_macro: 0.42917404810754123
+[tganet_pt] epoch 24
+   took: 1.0 min
+training loss: 21.672778695821762
+Evaling on "DEV" data
+f_macro: 0.41801125979679915
+p_macro: 0.42916288687425314
+r_macro: 0.43027484465471283
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.41801125979679915
+p-0_macro: 0.42916288687425314
+r-0_macro: 0.43027484465471283
+[tganet_pt] epoch 25
+   took: 1.0 min
+training loss: 23.06442528963089
+Evaling on "DEV" data
+f_macro: 0.3983629194820044
+p_macro: 0.4644463152398543
+r_macro: 0.40871230493758953
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.3983629194820044
+p-0_macro: 0.4644463152398543
+r-0_macro: 0.40871230493758953
+[tganet_pt] epoch 26
+   took: 1.0 min
+training loss: 22.465285003185272
+Evaling on "DEV" data
+f_macro: 0.4371566337772044
+p_macro: 0.43679391030654274
+r_macro: 0.4376458239849492
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4371566337772044
+p-0_macro: 0.43679391030654274
+r-0_macro: 0.4376458239849492
+0.4371566337772044 0.44665404290494415
+[tganet_pt] epoch 27
+   took: 1.0 min
+training loss: 21.36673876643181
+Evaling on "DEV" data
+f_macro: 0.3821961723493204
+p_macro: 0.46513143594418854
+r_macro: 0.3986536597680996
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.3821961723493204
+p-0_macro: 0.46513143594418854
+r-0_macro: 0.3986536597680996
+[tganet_pt] epoch 28
+   took: 1.0 min
+training loss: 20.676251098513603
+Evaling on "DEV" data
+f_macro: 0.39569991362341145
+p_macro: 0.4582782478896896
+r_macro: 0.40613790044586934
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.39569991362341145
+p-0_macro: 0.4582782478896896
+r-0_macro: 0.40613790044586934
+[tganet_pt] epoch 29
+   took: 1.0 min
+training loss: 20.302649706602097
+Evaling on "DEV" data
+f_macro: 0.4334067680417201
+p_macro: 0.4458633033725299
+r_macro: 0.4320924731350136
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4334067680417201
+p-0_macro: 0.4458633033725299
+r-0_macro: 0.4320924731350136
+[tganet_pt] epoch 30
+   took: 1.0 min
+training loss: 19.46142852306366
+Evaling on "DEV" data
+f_macro: 0.42664322144054156
+p_macro: 0.4267480591561612
+r_macro: 0.4265456931724157
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.42664322144054156
+p-0_macro: 0.4267480591561612
+r-0_macro: 0.4265456931724157
+[tganet_pt] epoch 31
+   took: 1.0 min
+training loss: 20.093201279640198
+Evaling on "DEV" data
+f_macro: 0.434681981827533
+p_macro: 0.4344769726942035
+r_macro: 0.4372960106932546
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.434681981827533
+p-0_macro: 0.4344769726942035
+r-0_macro: 0.4372960106932546
+0.434681981827533 0.44665404290494415
+[tganet_pt] epoch 32
+   took: 1.0 min
+training loss: 19.63693055510521
+Evaling on "DEV" data
+f_macro: 0.4342818999822074
+p_macro: 0.43561860681726133
+r_macro: 0.43350140971471113
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4342818999822074
+p-0_macro: 0.43561860681726133
+r-0_macro: 0.43350140971471113
+[tganet_pt] epoch 33
+   took: 1.0 min
+training loss: 18.45297358930111
+Evaling on "DEV" data
+f_macro: 0.4204875715221082
+p_macro: 0.42759521068640743
+r_macro: 0.4194881278763843
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4204875715221082
+p-0_macro: 0.42759521068640743
+r-0_macro: 0.4194881278763843
+[tganet_pt] epoch 34
+   took: 1.0 min
+training loss: 17.087086722254753
+Evaling on "DEV" data
+f_macro: 0.41123368967014073
+p_macro: 0.4592560114094915
+r_macro: 0.41665192539967855
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.41123368967014073
+p-0_macro: 0.4592560114094915
+r-0_macro: 0.41665192539967855
+[tganet_pt] epoch 35
+   took: 1.0 min
+training loss: 17.923536211252213
+Evaling on "DEV" data
+f_macro: 0.423039006951816
+p_macro: 0.45026754800125907
+r_macro: 0.4240388996530398
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.423039006951816
+p-0_macro: 0.45026754800125907
+r-0_macro: 0.4240388996530398
+[tganet_pt] epoch 36
+   took: 1.0 min
+training loss: 18.075117856264114
+Evaling on "DEV" data
+f_macro: 0.4212280648733004
+p_macro: 0.4347829228420987
+r_macro: 0.4207377204381399
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4212280648733004
+p-0_macro: 0.4347829228420987
+r-0_macro: 0.4207377204381399
+[tganet_pt] epoch 37
+   took: 1.0 min
+training loss: 17.362259283661842
+Evaling on "DEV" data
+f_macro: 0.4371780493464514
+p_macro: 0.4368448856933658
+r_macro: 0.4376123643349527
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4371780493464514
+p-0_macro: 0.4368448856933658
+r-0_macro: 0.4376123643349527
+0.4371780493464514 0.44665404290494415
+[tganet_pt] epoch 38
+   took: 1.0 min
+training loss: 16.97557796537876
+Evaling on "DEV" data
+f_macro: 0.4175396202492753
+p_macro: 0.4217266931974846
+r_macro: 0.4245525528329603
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4175396202492753
+p-0_macro: 0.4217266931974846
+r-0_macro: 0.4245525528329603
+[tganet_pt] epoch 39
+   took: 1.0 min
+training loss: 17.975073724985123
+Evaling on "DEV" data
+f_macro: 0.43227615311993034
+p_macro: 0.4444083104939727
+r_macro: 0.4310049912806055
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.43227615311993034
+p-0_macro: 0.4444083104939727
+r-0_macro: 0.4310049912806055
+[tganet_pt] epoch 40
+   took: 1.0 min
+training loss: 17.50297498703003
+Evaling on "DEV" data
+f_macro: 0.42648582559681697
+p_macro: 0.4263698851627358
+r_macro: 0.4266131312266723
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.42648582559681697
+p-0_macro: 0.4263698851627358
+r-0_macro: 0.4266131312266723
+[tganet_pt] epoch 41
+   took: 1.0 min
+training loss: 15.649788290262222
+Evaling on "DEV" data
+f_macro: 0.43108969364236716
+p_macro: 0.4333220701506402
+r_macro: 0.4300816086915547
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.43108969364236716
+p-0_macro: 0.4333220701506402
+r-0_macro: 0.4300816086915547
+[tganet_pt] epoch 42
+   took: 1.0 min
+training loss: 15.227986499667168
+Evaling on "DEV" data
+f_macro: 0.4218944845526739
+p_macro: 0.42401779978675663
+r_macro: 0.427124363553363
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4218944845526739
+p-0_macro: 0.42401779978675663
+r-0_macro: 0.427124363553363
+[tganet_pt] epoch 43
+   took: 1.0 min
+training loss: 15.32279259711504
+Evaling on "DEV" data
+f_macro: 0.3790017675354282
+p_macro: 0.43781009834565215
+r_macro: 0.3926306633915981
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.3790017675354282
+p-0_macro: 0.43781009834565215
+r-0_macro: 0.3926306633915981
+[tganet_pt] epoch 44
+   took: 1.0 min
+training loss: 16.130500093102455
+Evaling on "DEV" data
+f_macro: 0.43208549242161914
+p_macro: 0.43374255391621647
+r_macro: 0.43121456800306407
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.43208549242161914
+p-0_macro: 0.43374255391621647
+r-0_macro: 0.43121456800306407
+[tganet_pt] epoch 45
+   took: 1.0 min
+training loss: 13.72486899793148
+Evaling on "DEV" data
+f_macro: 0.4249384672309963
+p_macro: 0.4275140662617309
+r_macro: 0.4239436217866415
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4249384672309963
+p-0_macro: 0.4275140662617309
+r-0_macro: 0.4239436217866415
+[tganet_pt] epoch 46
+   took: 1.0 min
+training loss: 13.498193599283695
+Evaling on "DEV" data
+f_macro: 0.4247614894065321
+p_macro: 0.44036559409039694
+r_macro: 0.42424380758712693
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4247614894065321
+p-0_macro: 0.44036559409039694
+r-0_macro: 0.42424380758712693
+[tganet_pt] epoch 47
+   took: 1.0 min
+training loss: 13.86690504848957
+Evaling on "DEV" data
+f_macro: 0.42456712052825313
+p_macro: 0.42674143392440245
+r_macro: 0.42364455995372713
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.42456712052825313
+p-0_macro: 0.42674143392440245
+r-0_macro: 0.42364455995372713
+[tganet_pt] epoch 48
+   took: 1.0 min
+training loss: 14.496656581759453
+Evaling on "DEV" data
+f_macro: 0.4251148718383735
+p_macro: 0.42861319322214486
+r_macro: 0.42400898482384397
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4251148718383735
+p-0_macro: 0.42861319322214486
+r-0_macro: 0.42400898482384397
+[tganet_pt] epoch 49/anaconda/envs/zero_shot_stance/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1515: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true nor predicted samples. Use `zero_division` parameter to control this behavior.
+  average, "true nor predicted", 'F-score is', len(true_sum)
+/anaconda/envs/zero_shot_stance/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1272: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+/anaconda/envs/zero_shot_stance/lib/python3.7/site-packages/sklearn/metrics/_classification.py:1272: UndefinedMetricWarning: Recall is ill-defined and being set to 0.0 in labels with no true samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+
+   took: 1.0 min
+training loss: 13.237837895751
+Evaling on "DEV" data
+f_macro: 0.4263138010744771
+p_macro: 0.4313585319227266
+r_macro: 0.4250949104154616
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4263138010744771
+p-0_macro: 0.4313585319227266
+r-0_macro: 0.4250949104154616
+TRAINED for 49 epochs
+Evaling on "TRAIN" data
+f_macro: 0.627640706328319
+p_macro: 0.6317731859955368
+r_macro: 0.6245982904208913
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.627640706328319
+p-0_macro: 0.6317731859955368
+r-0_macro: 0.6245982904208913
+Evaling on "DEV" data
+f_macro: 0.4263138010744771
+p_macro: 0.4313585319227266
+r_macro: 0.4250949104154616
+f-1_macro: 0.0
+p-1_macro: 0.0
+r-1_macro: 0.0
+f-0_macro: 0.4263138010744771
+p-0_macro: 0.4313585319227266
+r-0_macro: 0.4250949104154616
+[tganet_pt] total runtime: 132.38 minutes
