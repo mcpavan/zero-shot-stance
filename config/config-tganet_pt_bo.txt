@@ -7,7 +7,7 @@ use_ori_topic:0
 epochs:50
 together_in:1
 att_mode:topic_only
-topic_name:bo_bert_tfidfW_ward_euclidean_197
+topic_name:bo_bert_tfidfw_ward_euclidean_197
 max_tok_len:200
 topic_dim:1536
 bert:yes
