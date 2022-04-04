@@ -265,6 +265,7 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--file_name', help='Name for files', required=False,
                         default='bert_tfidfW')
     parser.add_argument('-r', '--num_trials', help='Number of trials for search')
+    parser.add_argument('-b', '--bert_pretrained', help="Pretrained BERT model name", required=False, default=None)
     args = vars(parser.parse_args())
 
     torch.manual_seed(SEED)
@@ -287,7 +288,7 @@ if __name__ == '__main__':
     if args['mode'] == '1':
         print("Saving vectors")
 
-        input_layer = im.BERTLayer(mode='text-level', use_cuda=use_cuda)
+        input_layer = im.BERTLayer(mode='text-level', use_cuda=use_cuda, pretrained_model_name=args["bert_pretrained"])
         setup_fn = data_utils.setup_helper_bert_ffnn
         batching_fn = data_utils.prepare_batch
         batch_args = {'keep_sen': False}
