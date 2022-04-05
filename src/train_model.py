@@ -105,8 +105,8 @@ if __name__ == '__main__':
         vecs = data_utils.load_vectors('../resources/{}.vectors.npy'.format(vec_name),
                                    dim=vec_dim, seed=SEED)
 
-    trn_data_kwargs = {"bert_pretrained_model": config.get("bert_pretrained_model")}
-    dev_data_kwargs = {"bert_pretrained_model": config.get("bert_pretrained_model")}
+    trn_data_kwargs = {}
+    dev_data_kwargs = {}
 
     if 'topic_name' in config:
         topic_vecs = np.load('{}/{}.{}.npy'.format(config['topic_path'], config['topic_name'], config.get('rep_v', 'centroids')))
@@ -119,12 +119,15 @@ if __name__ == '__main__':
     #############
     # load training data
     if 'bert' not in config and 'bert' not in config['name']:
+        trn_data_kwargs["bert_pretrained_model"] = config.get("bert_pretrained_model")
+        dev_data_kwargs["bert_pretrained_model"] = config.get("bert_pretrained_model")
+
         vocab_name = '../resources/{}.vocab.pkl'.format(vec_name)
         data = datasets.StanceData(args['trn_data'], vocab_name,
                                    pad_val=len(vecs) - 1,
                                    max_tok_len=int(config.get('max_tok_len', '200')),
                                    max_sen_len=int(config.get('max_sen_len', '10')),
-                                   keep_sen=('keep_sen' in config),
+                                   keep_sen=('keep_sen' in config),                                   
                                    **trn_data_kwargs)
     else:
         data = datasets.StanceData(args['trn_data'], None, max_tok_len=config['max_tok_len'],

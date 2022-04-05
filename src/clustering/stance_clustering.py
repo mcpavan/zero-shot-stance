@@ -272,17 +272,38 @@ if __name__ == '__main__':
     torch.cuda.manual_seed_all(SEED)
     torch.backends.cudnn.deterministic = True
 
-    data = datasets.StanceData(args['trn_data'], None, max_tok_len=200, max_top_len=5, is_bert=True,
-                               add_special_tokens=True)
+    data = datasets.StanceData(
+        args['trn_data'],
+        None,
+        max_tok_len=200,
+        max_top_len=5,
+        is_bert=True,
+        add_special_tokens=True,
+        bert_pretrained_model=args["bert_pretrained"]
+    )
     dataloader = data_utils.DataSampler(data, batch_size=64, shuffle=False)
 
-    dev_data = datasets.StanceData(args['dev_data'], None, max_tok_len=200,
-                                   max_top_len=5, is_bert=True, add_special_tokens=True)
+    dev_data = datasets.StanceData(
+        args['dev_data'],
+        None,
+        max_tok_len=200,
+        max_top_len=5,
+        is_bert=True,
+        add_special_tokens=True,
+        bert_pretrained_model=args["bert_pretrained"]
+    )
     dev_dataloader = data_utils.DataSampler(dev_data, batch_size=64, shuffle=False)
 
     if args['test_data'] is not None:
-        test_data = datasets.StanceData(args['test_data'],None, max_tok_len=200,
-                                       max_top_len=5, is_bert=True, add_special_tokens=True)
+        test_data = datasets.StanceData(
+            args['test_data'],
+            None,
+            max_tok_len=200,
+            max_top_len=5,
+            is_bert=True,
+            add_special_tokens=True,
+            bert_pretrained_model=args["bert_pretrained"]
+        )
         test_dataloader = data_utils.DataSampler(test_data, batch_size=64, shuffle=False)
 
     if args['mode'] == '1':
