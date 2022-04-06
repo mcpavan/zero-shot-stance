@@ -89,8 +89,8 @@ if __name__ == '__main__':
         for l in f.readlines():
             config[l.strip().split(":")[0]] = l.strip().split(":")[1]
 
-    trn_data_kwargs = {"bert_pretrained_model": config.get("bert_pretrained_model")}
-    dev_data_kwargs = {"bert_pretrained_model": config.get("bert_pretrained_model")}
+    trn_data_kwargs = {}
+    dev_data_kwargs = {}
 
     if 'topic_name' in config:
         topic_vecs = np.load('{}/{}.{}.npy'.format(config['topic_path'],
@@ -130,6 +130,9 @@ if __name__ == '__main__':
                                    keep_sen=('keep_sen' in config),
                                    **trn_data_kwargs)
     else:
+        trn_data_kwargs["bert_pretrained_model"] = config.get("bert_pretrained_model")
+        dev_data_kwargs["bert_pretrained_model"] = config.get("bert_pretrained_model")
+
         data = datasets.StanceData(args['trn_data'], None, max_tok_len=config['max_tok_len'],
                                    max_top_len=config['max_top_len'], is_bert=True,
                                    add_special_tokens=(config.get('together_in', '0') == '0'),

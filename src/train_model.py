@@ -119,9 +119,6 @@ if __name__ == '__main__':
     #############
     # load training data
     if 'bert' not in config and 'bert' not in config['name']:
-        trn_data_kwargs["bert_pretrained_model"] = config.get("bert_pretrained_model")
-        dev_data_kwargs["bert_pretrained_model"] = config.get("bert_pretrained_model")
-
         vocab_name = '../resources/{}.vocab.pkl'.format(vec_name)
         data = datasets.StanceData(args['trn_data'], vocab_name,
                                    pad_val=len(vecs) - 1,
@@ -130,6 +127,9 @@ if __name__ == '__main__':
                                    keep_sen=('keep_sen' in config),                                   
                                    **trn_data_kwargs)
     else:
+        trn_data_kwargs["bert_pretrained_model"] = config.get("bert_pretrained_model")
+        dev_data_kwargs["bert_pretrained_model"] = config.get("bert_pretrained_model")
+        
         data = datasets.StanceData(args['trn_data'], None, max_tok_len=config['max_tok_len'],
                                    max_top_len=config['max_top_len'], is_bert=True,
                                    add_special_tokens=(config.get('together_in', '0') == '0'),
